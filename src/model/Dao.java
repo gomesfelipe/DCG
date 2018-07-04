@@ -74,6 +74,31 @@ public class Dao {
 		session.close();
 
 	}
+	
+	public Comentario findCommentary(String id) {
+		Comentario comment = null;
+
+		session = HibernateControl.getSession();
+	
+		session.beginTransaction();
+
+		Object object = session
+				.createQuery("FROM Comentario where id = '" + id + "'")
+				.uniqueResult();
+
+		session.getTransaction().commit();
+
+		session.flush();
+
+		session.close();
+		
+		if (object != null) {
+			comment = (Comentario) object;
+		}
+		
+		return comment;
+		
+	}
 
 	public Session getSession() {
 		return session;

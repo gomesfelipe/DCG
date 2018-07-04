@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "comment")
 public class Comentario {
